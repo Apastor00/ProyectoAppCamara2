@@ -27,6 +27,9 @@ public class Apod extends AppCompatActivity {
     String fecha;
     String urlfinal, explicacion;
 
+    String api_key = "qz7UevgGponV4Hqctv81KccrRJkauvNd6tNgf0Fr";
+    String url = "https://api.nasa.gov/planetary/apod?api_key=";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,14 @@ public class Apod extends AppCompatActivity {
         year = c.get(Calendar.YEAR);
 
         fecha = (year + "-" + (month+1) + "-" + day);
-        Apod();
+        AccesoGet accesoGet = new AccesoGet(url, api_key, fecha);
+        Bundle bundle = new Bundle();
+        bundle=accesoGet.Apod();
+
+        apod_fragment apod__fragment = new apod_fragment();
+        apod__fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();
+
         editTextFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +69,7 @@ public class Apod extends AppCompatActivity {
         });
 
     }
-    public void Apod() {
+    /*public void Apod() {
 
         String api_key = "qz7UevgGponV4Hqctv81KccrRJkauvNd6tNgf0Fr";
         String url = "https://api.nasa.gov/planetary/apod?api_key="+api_key+"&date="+fecha;
@@ -98,5 +108,5 @@ public class Apod extends AppCompatActivity {
             }
         });
         Volley.newRequestQueue(this).add(postRequest);
-    }
+    }*/
 }

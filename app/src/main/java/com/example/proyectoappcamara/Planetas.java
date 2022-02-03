@@ -11,9 +11,11 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
+
 public class Planetas extends AppCompatActivity {
 
-    Button btnCamara;
     ImageView imgView;
     WebView webView;
 
@@ -22,33 +24,11 @@ public class Planetas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planetas);
 
-        btnCamara = findViewById(R.id.btnCamara);
         imgView = findViewById(R.id.imageView);
         webView = findViewById(R.id.webView);
 
-        webView.loadUrl("file:///android_asset/el_sol.html");
-
-        btnCamara.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                abrirCamara();
-            }
-        });
-
-    }
-
-    private void abrirCamara() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, 1);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imgBitmap = (Bitmap) extras.get("data");
-            imgView.setImageBitmap(imgBitmap);
-        }
+        webView.loadUrl("file:///android_asset/venus.html");
+        String url ="https://blogs.nasa.gov/solarcycle25/wp-content/uploads/sites/304/2022/01/Full-Disk_171_final.gif";
+        Picasso.get().load(url).into(imgView);
     }
 }
