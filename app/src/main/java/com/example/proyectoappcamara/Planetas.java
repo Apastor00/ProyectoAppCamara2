@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class Camera extends AppCompatActivity {
+public class Planetas extends AppCompatActivity {
 
     Button btnCamara;
     ImageView imgView;
@@ -20,7 +20,7 @@ public class Camera extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
+        setContentView(R.layout.activity_planetas);
 
         btnCamara = findViewById(R.id.btnCamara);
         imgView = findViewById(R.id.imageView);

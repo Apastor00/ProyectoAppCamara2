@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara/app/src/main/res/layout/activity_apod.xml" value="0.165" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara/app/src/main/res/layout/activity_apod2.xml" value="0.5101851851851852" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara/app/src/main/res/layout/activity_apod_prueba.xml" value="0.5791666666666667" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara/app/src/main/res/layout/activity_main.xml" value="0.4479166666666667" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara/app/src/main/res/layout/fragment_apod_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_camera.xml" value="0.2653985507246377" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21614583333333334" />
       </map>
@@ -13,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.4479166666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>

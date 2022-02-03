@@ -1,33 +1,33 @@
 package com.example.proyectoappcamara;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.hardware.Camera;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CaptureRequest;
-import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCamara;
-    ImageView imgView;
-    WebView webView;
+    ImageButton imgButton1,imgButton2, imgButton3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide(); //Con esta línea ocultamos la barra con el nombre de la app
 
+        imgButton1 = findViewById(R.id.imageButton);
+        imgButton2 = findViewById(R.id.imageButton2);
+        imgButton3 = findViewById(R.id.imageButton3);
+    }
+
+    public void Apod(View view){
+        Intent intent_apod = new Intent(this, Apod.class);
+        startActivity(intent_apod);
+    }
+    public void Planetas (View view){
+        Intent intent_planetas =new Intent(this, Planetas.class);
+        startActivity(intent_planetas);
     }
 }
