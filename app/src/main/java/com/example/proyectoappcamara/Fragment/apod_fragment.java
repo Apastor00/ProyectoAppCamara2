@@ -1,4 +1,4 @@
-package com.example.proyectoappcamara;
+package com.example.proyectoappcamara.Fragment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.proyectoappcamara.R;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -81,13 +82,7 @@ public class apod_fragment extends Fragment {
         textViewApod.setGravity(View.TEXT_ALIGNMENT_INHERIT);
         textViewApod.setGravity(View.TEXT_ALIGNMENT_TEXT_END);
 
-
         textViewApod.setText(explicacion);
-        //textViewApod.setText(Html.fromHtml("<html><head><style> div{text-align: justify; text-justify:inter-word;}</style></head><body><div>"+explicacion+"</div></body></html>"));
 
-
-        /*webViewApod.loadUrl("<h2>Descripción</h2><br><style>text-align:justify;" +
-                "text-justify: inter-word</style><p><div>"+explicacion+"</p></div>");*/
-        //textViewApodActual.setText(explicacion);
     }
 }

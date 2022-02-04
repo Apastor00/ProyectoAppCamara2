@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Apod">
+    tools:context=".Actividades.Apod">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.proyectoappcamara.apod_fragment"
+        android:name="com.example.proyectoappcamara.Fragment.apod_fragment"
         android:layout_width="411dp"
         android:layout_height="662dp"
         app:layout_constraintBottom_toBottomOf="parent"

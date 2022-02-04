@@ -1,4 +1,4 @@
-package com.example.proyectoappcamara;
+package com.example.proyectoappcamara.Actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,9 @@ import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectoappcamara.Clases.AccesoGet;
+import com.example.proyectoappcamara.R;
+import com.example.proyectoappcamara.Fragment.apod_fragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,16 +50,16 @@ public class Apod extends AppCompatActivity {
         year = c.get(Calendar.YEAR);
 
         fecha = (year + "-" + (month+1) + "-" + day);
-        Apod();
-        /*AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, this);
+        //Apod();
+        AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, this);
         Bundle bundle = new Bundle();
-        bundle=accesoGet.Apod();
-        abrirFragment(bundle);*/
+        bundle = accesoGet.Apod();
+        abrirFragment(bundle);
 
-        /*apod_fragment apod__fragment = new apod_fragment();
+      /*  apod_fragment apod__fragment = new apod_fragment();
         apod__fragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();*/
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();
+*/
         editTextFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +69,12 @@ public class Apod extends AppCompatActivity {
                     public void onDateSet(DatePicker datePicker, int y, int m, int d) {
                         editTextFecha.setText(y + "-" + (m+1) + "-" + d);
                         fecha = (y + "-" + (m+1) + "-" + d);
-                        Apod();
-                        /*AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, Apod.this);
+                        //Apod();
+
+                        AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, Apod.this);
                         Bundle bundle = new Bundle();
                         bundle=accesoGet.Apod();
-                        abrirFragment(bundle);*/
+                        abrirFragment(bundle);
                     }
                 }, year, month, day);
                 calendario.show();
@@ -83,7 +87,7 @@ public class Apod extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();
     }
 
-    public void Apod() {
+   /* public void Apod() {
 
         String api_key = "qz7UevgGponV4Hqctv81KccrRJkauvNd6tNgf0Fr";
         String url = "https://api.nasa.gov/planetary/apod?api_key="+api_key+"&date="+fecha;
@@ -121,7 +125,8 @@ public class Apod extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
             }
+
         });
         Volley.newRequestQueue(this).add(postRequest);
-    }
+    }*/
 }

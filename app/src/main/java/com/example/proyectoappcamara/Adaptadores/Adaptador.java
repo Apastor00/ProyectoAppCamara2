@@ -1,4 +1,4 @@
-package com.example.proyectoappcamara;
+package com.example.proyectoappcamara.Adaptadores;
 
 import android.view.ViewGroup;
 

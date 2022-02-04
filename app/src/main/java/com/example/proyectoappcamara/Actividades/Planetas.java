@@ -1,4 +1,4 @@
-package com.example.proyectoappcamara;
+package com.example.proyectoappcamara.Actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.proyectoappcamara.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 

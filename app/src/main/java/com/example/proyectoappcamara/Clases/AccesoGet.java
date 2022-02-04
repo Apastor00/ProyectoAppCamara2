@@ -1,4 +1,4 @@
-package com.example.proyectoappcamara;
+package com.example.proyectoappcamara.Clases;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -12,11 +12,12 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AccesoGet  {
+public class AccesoGet {
 
     private String urlApi, keyApi, parametroApi;
     private Context contextApi;
     private DatePickerDialog.OnDateSetListener contexOnDateSetListener;
+    private Bundle bundleResultado;
 
 
     public AccesoGet(String url, String key, String parametro, Context context) {
@@ -29,8 +30,8 @@ public class AccesoGet  {
     public Bundle Apod() {
 
         String fecha = parametroApi;
-        String urlfinal = urlApi+keyApi+"&date="+fecha;
-        Bundle result = new Bundle();
+        String urlfinal = urlApi + keyApi + "&date=" + fecha;
+        //Bundle result = new Bundle();
 
         StringRequest postRequest = new StringRequest(Request.Method.GET, urlfinal, new com.android.volley.Response.Listener<String>() {
             @Override
@@ -42,17 +43,12 @@ public class AccesoGet  {
                     e.printStackTrace();
                 }
                 try {
-                    //Bundle result = new Bundle();
-                    result.putString("url", jsonObject.getString("url"));
-                    result.putString("explicacion", jsonObject.getString("explanation"));
-
-                    /*apod_fragment apod__fragment = new apod_fragment();
-                    apod__fragment.setArguments(result);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();*/
-
+                    bundleResultado.putString("url", jsonObject.getString("url"));
+                    bundleResultado.putString("explicacion", jsonObject.getString("explanation"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
@@ -60,6 +56,6 @@ public class AccesoGet  {
             }
         });
         Volley.newRequestQueue(contextApi).add(postRequest);
-        return result;
+        return bundleResultado;
     }
 }

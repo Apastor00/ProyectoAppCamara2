@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoAppCamara" >
         <activity
-            android:name=".Apod"
+            android:name=".Actividades.Apod"
             android:exported="false" />
         <activity
-            android:name=".Planetas"
+            android:name=".Actividades.Planetas"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Actividades.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
