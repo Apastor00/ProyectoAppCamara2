@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -21,6 +22,7 @@ import java.util.Calendar;
 public class Apod extends AppCompatActivity {
 
     EditText editTextFecha;
+    Button buttonApod;
     DatePickerDialog calendario;
     Calendar c;
     int day, month, year;
@@ -37,6 +39,7 @@ public class Apod extends AppCompatActivity {
         getSupportActionBar().hide();
 
         editTextFecha = findViewById(R.id.editTextFecha);
+        buttonApod = findViewById(R.id.buttonApod);
 
         c = Calendar.getInstance();
         day = c.get(Calendar.DAY_OF_MONTH);
@@ -44,13 +47,15 @@ public class Apod extends AppCompatActivity {
         year = c.get(Calendar.YEAR);
 
         fecha = (year + "-" + (month+1) + "-" + day);
-        AccesoGet accesoGet = new AccesoGet(url, api_key, fecha);
+        Apod();
+        /*AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, this);
         Bundle bundle = new Bundle();
         bundle=accesoGet.Apod();
+        abrirFragment(bundle);*/
 
-        apod_fragment apod__fragment = new apod_fragment();
+        /*apod_fragment apod__fragment = new apod_fragment();
         apod__fragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();*/
 
         editTextFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,14 +67,23 @@ public class Apod extends AppCompatActivity {
                         editTextFecha.setText(y + "-" + (m+1) + "-" + d);
                         fecha = (y + "-" + (m+1) + "-" + d);
                         Apod();
+                        /*AccesoGet accesoGet = new AccesoGet(url, api_key, fecha, Apod.this);
+                        Bundle bundle = new Bundle();
+                        bundle=accesoGet.Apod();
+                        abrirFragment(bundle);*/
                     }
                 }, year, month, day);
                 calendario.show();
             }
         });
-
     }
-    /*public void Apod() {
+    private void abrirFragment(Bundle bundle){
+        apod_fragment apod__fragment = new apod_fragment();
+        apod__fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, apod__fragment).commit();
+    }
+
+    public void Apod() {
 
         String api_key = "qz7UevgGponV4Hqctv81KccrRJkauvNd6tNgf0Fr";
         String url = "https://api.nasa.gov/planetary/apod?api_key="+api_key+"&date="+fecha;
@@ -93,6 +107,7 @@ public class Apod extends AppCompatActivity {
                     //result.putString("explicacion", explicacion);
                     result.putString("url", jsonObject.getString("url"));
                     result.putString("explicacion", jsonObject.getString("explanation"));
+                    //abrirFragment(result);
 
                     apod_fragment apod__fragment = new apod_fragment();
                     apod__fragment.setArguments(result);
@@ -108,5 +123,5 @@ public class Apod extends AppCompatActivity {
             }
         });
         Volley.newRequestQueue(this).add(postRequest);
-    }*/
+    }
 }

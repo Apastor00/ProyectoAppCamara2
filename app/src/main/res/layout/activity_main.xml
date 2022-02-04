@@ -6,16 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
+    android:background="#4C7277"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/constraintLayout1"
-        app:layout_constraintStart_toStartOf="@id/constraintLayout1">
+        app:layout_constraintStart_toStartOf="@id/constraintLayout1"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -23,6 +24,7 @@
             android:layout_height="152dp"
             android:adjustViewBounds="true"
             android:baselineAlignBottom="false"
+            android:backgroundTint="#4C7277"
             android:onClick="Apod"
             android:scaleType="fitXY"
             android:src="@drawable/slot"
@@ -35,6 +37,7 @@
             android:layout_height="152dp"
             android:layout_marginTop="50dp"
             android:onClick="Planetas"
+            android:backgroundTint="#4C7277"
             android:scaleType="fitXY"
             android:src="@drawable/astronauta"
             app:layout_constraintEnd_toEndOf="@id/constraintLayout2"
@@ -45,6 +48,7 @@
             android:layout_width="152dp"
             android:layout_height="152dp"
             android:layout_marginTop="50dp"
+            android:backgroundTint="#4C7277"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/telescopio"

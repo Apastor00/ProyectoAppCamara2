@@ -1,5 +1,6 @@
 package com.example.proyectoappcamara;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -14,12 +15,15 @@ import org.json.JSONObject;
 public class AccesoGet  {
 
     private String urlApi, keyApi, parametroApi;
+    private Context contextApi;
+    private DatePickerDialog.OnDateSetListener contexOnDateSetListener;
 
 
-    public AccesoGet(String url, String key, String parámetro) {
+    public AccesoGet(String url, String key, String parametro, Context context) {
         urlApi = url;
         keyApi = key;
-        parametroApi = parámetro;
+        parametroApi = parametro;
+        contextApi = context;
     }
 
     public Bundle Apod() {
@@ -55,7 +59,7 @@ public class AccesoGet  {
             public void onErrorResponse(VolleyError error) {
             }
         });
-        Volley.newRequestQueue(g).add(postRequest);
+        Volley.newRequestQueue(contextApi).add(postRequest);
         return result;
     }
 }
