@@ -1,5 +1,6 @@
 package com.example.proyectoappcamara.Fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,11 +10,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.proyectoappcamara.R;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +25,7 @@ import com.squareup.picasso.Picasso;
  */
 public class apod_fragment extends Fragment {
     ImageView imgViewApodActual;
-    TextView textViewApod;
+    EditText editText;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +64,10 @@ public class apod_fragment extends Fragment {
         if (getArguments() != null) {
             url = getArguments().getString(ARG_PARAM1);
             explicacion = getArguments().getString(ARG_PARAM2);
+            ArrayList<String> datos = new ArrayList<String>();
+            datos.add(url);
+            datos.add(explicacion);
+            new AsincronaClase().execute(datos);
         }
     }
 
@@ -74,15 +81,24 @@ public class apod_fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        textViewApod = view.findViewById(R.id.textViewApod);
+        editText = view.findViewById(R.id.EditTextApod);
         imgViewApodActual = view.findViewById(R.id.imvApodActual);
 
-        Picasso.get().load(url).into(imgViewApodActual);
+    }
+    private class AsincronaClase extends AsyncTask<ArrayList<String>, Void, ArrayList<String>[]> {
+        @Override
+        protected ArrayList<String>[] doInBackground(ArrayList<String>... arrayLists) {
+            return arrayLists;
+        }
 
-        textViewApod.setGravity(View.TEXT_ALIGNMENT_INHERIT);
-        textViewApod.setGravity(View.TEXT_ALIGNMENT_TEXT_END);
-
-        textViewApod.setText(explicacion);
-
+        @Override
+        protected void onPostExecute(ArrayList<String>[] strings) {
+            super.onPostExecute(strings);
+            String urlFinal = strings[0].get(0);
+            String explicacionFinal = strings[0].get(1);
+            Picasso.get().load(urlFinal).into(imgViewApodActual);
+            editText.setText(explicacionFinal);
+            editText.setTextAlignment(View.TEXT_ALIGNMENT_INHERIT);
+        }
     }
 }

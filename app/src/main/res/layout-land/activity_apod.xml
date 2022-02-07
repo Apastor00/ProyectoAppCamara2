@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/fragmentContainerViewApod"
         android:name="com.example.proyectoappcamara.Fragment.apod_fragment"
         android:layout_width="411dp"
         android:layout_height="662dp"

@@ -1,35 +1,91 @@
 package com.example.proyectoappcamara.Actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.View;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.os.Parcel;
+import android.os.Parcelable;
 
+import com.example.proyectoappcamara.Adaptadores.Adaptador;
+import com.example.proyectoappcamara.Clases.BaseDeDatos;
+import com.example.proyectoappcamara.Clases.Objetos;
+import com.example.proyectoappcamara.Fragment.apod_fragment;
+import com.example.proyectoappcamara.Fragment.fragment_lista_sistemasolar;
 import com.example.proyectoappcamara.R;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
+
+import java.util.ArrayList;
 
 public class Planetas extends AppCompatActivity {
 
-    ImageView imgView;
-    WebView webView;
+    SQLiteDatabase sqLiteDatabase = null;
+    ArrayList<String> objeto, imagen;
+
+    RecyclerView.Adapter miAdapter = new Adaptador();
+    RecyclerView recyclerView;
+    ArrayList<Objetos> listaObjetos = new ArrayList<Objetos>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_planetas);
+        //setContentView(R.layout.activity_planetas);
+        setContentView(R.layout.fragment_lista_sistemasolar);
+        recyclerView = findViewById(R.id.recyclerViewSistemaSolar);
 
-        imgView = findViewById(R.id.imageView);
-        webView = findViewById(R.id.webView);
+       /*BaseDeDatos baseDeDatos = new BaseDeDatos(this, "sistemaSolar", null , 1);
+        baseDeDatos.getWritableDatabase();*/
 
-        webView.loadUrl("file:///android_asset/venus.html");
-        String url ="https://blogs.nasa.gov/solarcycle25/wp-content/uploads/sites/304/2022/01/Full-Disk_171_final.gif";
-        Picasso.get().load(url).into(imgView);
+        BaseDeDatos baseDeDatos = new BaseDeDatos(this, "sistemaSolar", null , 1);
+        SQLiteDatabase sqLiteDatabase = baseDeDatos.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT objeto, imagen FROM sistemaSolar", null);
+        if (cursor.moveToFirst()){
+            do {
+                Objetos objetos = new Objetos();
+                String planeta = cursor.getString(0);
+                objetos.setObjeto(planeta);
+                int imagen = cursor.getInt(1);
+                objetos.setImagen(imagen);
+                listaObjetos.add(objetos);
+            }while (cursor.moveToNext());
+        }
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        miAdapter  = new Adaptador(listaObjetos);
+        recyclerView.setAdapter(miAdapter);
+
+
+
+
+        //fragment_lista_sistemasolar fragment_lista_sistemasolar = new fragment_lista_sistemasolar();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.constrainFragmentContenedor, fragment_lista_sistemasolar).commit();
+
+
+
+
+        /*sqLiteDatabase = new BaseDeDatos(this, "sistemaSolar", null , 1).getWritableDatabase();
+        sqLiteDatabase = new BaseDeDatos(this, "sistemaSolar", null , 1).getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT objeto, imagen FROM sistemaSolar WHERE id=?", null);
+
+        if (cursor.moveToFirst()){
+            do {
+                objeto.add(cursor.getString(0));
+                imagen.add(cursor.getString(1));
+            }while (cursor.moveToNext());
+        }
+        abrirFragment(objeto);*/
+
+    }
+
+    private void abrirFragment(ArrayList<String> arrayList) {
+        Bundle bundle = new Bundle();
+        bundle.putStringArrayList("objeto", arrayList);
+        apod_fragment apod_fragment = new apod_fragment();
+        apod_fragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerViewSistemaSolar, apod_fragment).commit();
     }
 }
