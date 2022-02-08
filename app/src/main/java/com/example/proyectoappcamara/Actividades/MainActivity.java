@@ -32,4 +32,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent_planetas =new Intent(this, Planetas.class);
         startActivity(intent_planetas);
     }
+    public void GuardarPlaneta (View view){
+        Intent intent_nuevo_planeta = new Intent(this, NuevoPlaneta.class);
+        startActivity(intent_nuevo_planeta);
+
+    }
 }

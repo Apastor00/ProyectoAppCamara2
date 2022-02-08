@@ -1,11 +1,7 @@
 package com.example.proyectoappcamara.Adaptadores;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.proyectoappcamara.Actividades.Planetas;
 import com.example.proyectoappcamara.Actividades.SeleccionPlaneta;
-import com.example.proyectoappcamara.Clases.BaseDeDatos;
 import com.example.proyectoappcamara.Clases.Objetos;
-import com.example.proyectoappcamara.Fragment.fragment_lista_sistemasolar;
 import com.example.proyectoappcamara.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.Holder> {
 

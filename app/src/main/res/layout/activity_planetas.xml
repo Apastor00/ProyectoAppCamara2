@@ -7,9 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".Actividades.Planetas">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewSistemaSolar"
-        android:name="com.example.proyectoappcamara.Fragment.fragment_lista_sistemasolar"
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recyclerViewSistemaSolar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:backgroundTint="@android:color/transparent"
+        android:hapticFeedbackEnabled="true" /> />
 </androidx.constraintlayout.widget.ConstraintLayout>

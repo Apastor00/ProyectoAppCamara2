@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "970564755849",
+    "project_id": "appsky-6dfa7",
+    "storage_bucket": "appsky-6dfa7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970564755849:android:1c73fdfeebb71460858158",
+        "android_client_info": {
+          "package_name": "com.example.proyectoappcamara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970564755849-08m2i4e9mpcflg6qo2nh1l6or62ecng6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi5uHE9EHOxffoIxDsGlTdeAOkd1Sc3-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970564755849-08m2i4e9mpcflg6qo2nh1l6or62ecng6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

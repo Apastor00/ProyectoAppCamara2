@@ -46,6 +46,7 @@ public class Apod extends AppCompatActivity {
         year = c.get(Calendar.YEAR);
 
         fecha = (year + "-" + (month+1) + "-" + day);
+        editTextFecha.setText(day+"/"+(month+1)+"/"+year);
         String url = urlApi+api_key+"&date="+fecha;
         new ClassAsyn().execute(url);
         editTextFecha.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +56,8 @@ public class Apod extends AppCompatActivity {
                 calendario = new DatePickerDialog(Apod.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int y, int m, int d) {
-                        editTextFecha.setText(y + "-" + (m+1) + "-" + d);
+                        editTextFecha.setText(d+"/"+(m+1)+"/"+y);
+                        //editTextFecha.setText(y + "-" + (m+1) + "-" + d);
                         fecha = (y + "-" + (m+1) + "-" + d);
                         String url = urlApi+api_key+"&date="+fecha;
                         new ClassAsyn().execute(url);

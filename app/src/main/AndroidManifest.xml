@@ -3,6 +3,8 @@
     package="com.example.proyectoappcamara">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProyectoAppCamara">
+        android:theme="@style/Theme.Material3.DynamicColors.Light">
+        <activity
+            android:name=".Actividades.CapturarNuevoPlaneta"
+            android:exported="false" />
+        <activity
+            android:name=".Actividades.NuevoPlaneta"
+            android:exported="false" />
         <activity
             android:name=".Actividades.SeleccionPlaneta"
             android:exported="false" />

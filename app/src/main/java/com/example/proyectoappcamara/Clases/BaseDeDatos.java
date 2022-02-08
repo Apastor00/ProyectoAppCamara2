@@ -30,8 +30,8 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
     private void datosTabla (SQLiteDatabase db){
-        db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(0,'El Sol',"+R.drawable.el_sol+")");
-        db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(1,'Mercurio',"+R.drawable.mercurio+")");
+        db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(0,'El Sol',"+ R.drawable.el_sol +")");
+        db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(1,'Mercurio',"+ R.drawable.mercurio +")");
         db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(2,'Venus',"+R.drawable.venus+")");
         db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(3,'Tierra',"+R.drawable.tierra+")");
         db.execSQL("INSERT INTO sistemaSolar (id, objeto, imagen) VALUES(4,'Marte',"+R.drawable.marte+")");
