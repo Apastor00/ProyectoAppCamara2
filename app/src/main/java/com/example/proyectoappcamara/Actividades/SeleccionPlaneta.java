@@ -2,6 +2,9 @@ package com.example.proyectoappcamara.Actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -37,6 +40,7 @@ public class SeleccionPlaneta extends AppCompatActivity {
         urlsFinales(objtoFInal);
         webView.loadUrl(textoFinal);
         Picasso.get().load(urlApiFoto).into(imgView);
+
     }
 
     private void urlsFinales(String parametro) {

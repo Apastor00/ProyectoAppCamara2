@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.34479166666666666" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.5786458333333333" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5786458333333333" />
+        <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/drawable/splashscreen.xml" value="0.5786458333333333" />
         <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/layout-land/activity_apod.xml" value="0.5182291666666666" />
         <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/layout/activity_apod.xml" value="0.25" />
         <entry key="../../../Artemi/AndroidStudioProjects/ProyectoAppCamara2/app/src/main/res/layout/activity_capturar_nuevo_planeta.xml" value="0.5515625" />

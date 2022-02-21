@@ -31,17 +31,19 @@
             android:inputType="textPassword"
             android:hint="Contraseña" />
 
-        <Button
-            android:id="@+id/inicioSesion"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Iniciar sesión"
             android:onClick="inicSesion"/>
+
         <Button
             android:textColor="@color/white"
             android:id="@+id/registroNuevoUsuario"
+
             android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
